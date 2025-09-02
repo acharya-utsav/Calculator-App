@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #91F1EF 0%, #FFD5E0 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .calculator {
+      background: #1a2530;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      width: 320px;
+    }
+
+    .display {
+      background: #525151;
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      color: #ecf0f1;
+      font-size: 20px;
+      min-height: 50px;
+      word-wrap: break-word;
+      font-family: 'Courier New', monospace;
+      user-select: none;
+    }
+
+    #display-expression {
+      font-size: 18px;
+      color: #bdc3c7;
+      min-height: 20px;
+    }
+
+    #display-result {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 5px;
+      min-height: 30px;
+    }
+
+    .buttons-grid {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     grid-auto-rows: 55px; /* fixed row height */
+     gap: 10px;
+    }
+
+    .button {
+      height: 55px;
+      border: none;
+      border-radius: 12px;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      outline: none;
+      color: white;
+      user-select: none;
+    }
+
+    .button:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .button:active {
+      transform: translateY(0);
+    }
+
+    /* Colors */
+    .number {
+      background: #3498db;
+    }
+
+    .number:hover {
+      background: #2980b9;
+    }
+
+    .operator {
+      background: #e74c3c;
+    }
+
+    .operator:hover {
+      background: #c0392b;
+    }
+
+    .plus-button {
+     background-color: #52e3ee;
+     color: white;
+     grid-row: span 2;      
+     font-size: 32px;          
+     height: 110px;
+    }
+
+    .equals {
+      background: #27ae60;
+      grid-column: span 1;
+    }
+
+    .equals:hover {
+      background: #229954;
+    }
+
+    .clear {
+      background: #f39c12;
+    }
+
+    .clear:hover {
+      background: #e67e22;
+    }
+
+    .decimal {
+      background: #9b59b6;
+    }
+
+    .decimal:hover {
+      background: #8e44ad;
+    }
+
+    .delete {
+      background: #7f8c8d;
+    }
+
+    .delete:hover {
+      background: #636e72;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display" aria-label="Calculator display">
+      <div id="display-expression"></div>
+      <div id="display-result">0</div>
+    </div>
+
+    <div class="buttons-grid">
+      <button class="button operator" data-value="%">%</button>
+      <button class="button operator" data-value="/">÷</button>
+      <button class="button operator" data-value="*">×</button>
+      <button class="button operator" data-value="-">−</button>
+    
+      <button class="button number" data-value="7">7</button>
+      <button class="button number" data-value="8">8</button>
+      <button class="button number" data-value="9">9</button>
+      <button class="button clear operator" id="clear">AC</button>
+      
+      <button class="button number" data-value="4">4</button>
+      <button class="button number" data-value="5">5</button>
+      <button class="button number" data-value="6">6</button>
+      <button class="button delete operator" id="delete">DEL</button>
+      
+      <button class="button number" data-value="1">1</button>
+      <button class="button number" data-value="2">2</button>
+      <button class="button number" data-value="3">3</button>
+      <button class="button operator plus-button" data-value="+">+</button>
+      
+      
+      <button class="button decimal" data-value=".">.</button>
+      <button class="button number" data-value="0">0</button>
+      <button class="button equals" id="equals">=</button>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
