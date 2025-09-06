@@ -1,6 +1,6 @@
 # Calculator Desktop App  
 
-A simple **desktop calculator application** built with Electron
+A simple **desktop calculator application** built with Electron.
 This project was created as part of my **Software Development Class** to practice desktop app development.  
 
 
